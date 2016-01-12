@@ -1,0 +1,16 @@
+Input
+- A list of binary numbers
+
+Prossess
+- Compares the bit of one number to the bit of another and if it is bigger they switch places. Here is the basic idea using numbers. My program will work the same way but compares bits instead of the whole number
+
+18	 23	  23	   23       23	     23	      23       65
+  Compare		     Compare		        Compare
+23	 18       18	   18	    18	     65	      65       23
+  	   Compare		      Compare				Sorted numbers
+11	 11	  11	   65	    65	     18	      18       18
+ 		    Compare		       Compare
+65	 65	  65	   11	    11       11       11       11
+
+Output
+A sorted set of numbers
