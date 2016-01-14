@@ -13,7 +13,7 @@ func representAsInteger(number : [Int]) -> (binaryIntegerLiteral: String, intege
     
     // String representation of the number as a binary integer literal
     var binaryIntegerLiteral = "0b"
-
+    
     // Declare the integer value
     var integerValue = 0
     
@@ -39,7 +39,7 @@ func representAsInteger(number : [Int]) -> (binaryIntegerLiteral: String, intege
     
     // Print the completed string representation of the binary integer literal
     print("Binary integer literal (base 2 representation) is: \(binaryIntegerLiteral)")
-
+    
     // Print the integer representation
     print("Integer (base 10 representation) is: \(integerValue)")
     
@@ -88,12 +88,39 @@ twoHundredAndFourtyEightAsInteger.integer
 // Create an array of these values
 var numbersToSort = [sixteen, fourteen, twoHundredAndFourtyEight]
 
+// temporary array
+var temporaryList = [ [1, 1] ]
+temporaryList.removeAtIndex(0)
+
+// keep track of last populated element of array
+var temporaryListEnd = 0
+
 // Sort these values... that's up to you!
+for (index, binaryNumber) in numbersToSort.enumerate() {
+    binaryNumber
+    for i in 0...0 {
+        print("number \(index) bit \(i) is \(binaryNumber[i])")
+        if(binaryNumber[i] == 1){
+            temporaryList.append(numbersToSort[temporaryListEnd - 1])
+            
+        } else {
+            
+            temporaryList.append(numbersToSort[index])
+            temporaryListEnd += 1
+            
+        }
+    }
+    
+    
+    
+    
+}
 
-// the entire first number in binary
-numbersToSort[0]
+temporaryList
 
-// the first bit of the first number in binary
-numbersToSort[0][3]
+
+
+
+
 
 
