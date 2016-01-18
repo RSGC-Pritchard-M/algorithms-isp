@@ -32,7 +32,10 @@ class Sketch : NSObject {
     
     // Runs repeatedly, equivalent to draw() in Processing
     func draw() {
-                
+        
+        
+        //if less than 120 frames dont move
+        if (canvas.frameCount > 120 ){
         // Horizontal position of circle
         x = x + s
         
@@ -40,7 +43,7 @@ class Sketch : NSObject {
         if (x > canvas.width || x < 0) {
             s *= -1
         }
-        
+        }
         // "Clear" the background
         canvas.drawShapesWithBorders = false
         canvas.fillColor = Color(hue: 0, saturation: 0, brightness: 0, alpha: 10)
@@ -57,6 +60,14 @@ class Sketch : NSObject {
         canvas.drawShapesWithBorders = false
         canvas.fillColor = Color(hue: Float(canvas.frameCount), saturation: 80, brightness: 90, alpha: 100)
         canvas.drawEllipse(centreX: x, centreY: canvas.height / 2, width: 25, height: 25)
+        
+        canvas.drawShapesWithBorders = false
+        canvas.fillColor = Color(hue: Float(canvas.frameCount), saturation: 80, brightness: 90, alpha: 100)
+        canvas.drawEllipse(centreX: 50, centreY: canvas.height / 2, width: 25, height: 25)
+        
+        canvas.drawShapesWithBorders = false
+        canvas.fillColor = Color(hue: Float(canvas.frameCount), saturation: 80, brightness: 90, alpha: 100)
+        canvas.drawEllipse(centreX: 100, centreY: canvas.height / 2, width: 25, height: 25)
         
         // Draw some text on the screen
         canvas.textColor = Color(hue: 0, saturation: 0, brightness: 100, alpha: 100) // white
