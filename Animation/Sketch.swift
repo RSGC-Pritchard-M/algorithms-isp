@@ -24,13 +24,8 @@ class Sketch : NSObject {
     var x3 = Int (arc4random_uniform(60)) + 140
     var s3 = 3
     var stop = false
+    var awnser = false
     
-    
-//    if (canvas.frameCount > 1000){
-//    var s1 = 0
-//    var s2 = 0
-//    var s3 = 0
-//    }
     var backgroundRed : Bool = false // Boolean to toggle whether background is red
     
     // This runs once, equivalent to setup() in Processing
@@ -112,26 +107,26 @@ class Sketch : NSObject {
         // Draw some more text on the screen
         canvas.textColor = Color(hue: 60, saturation: 80, brightness: 90, alpha: 100) // yellow
         canvas.drawText(message: "Current frame: \(canvas.frameCount)", size: 12, x: canvas.width / 16, y: canvas.height - canvas.height / 8)
-                // Text with emoji works too
-//        if (Awnser ==  false){
-//        canvas.drawText(message: "Wrong", size: 48, x: canvas.width - canvas.width / 4, y: canvas.height - canvas.height / 4)
-//        }
-//        if (Awnser ==  true){
-//            canvas.drawText(message: "Correct", size: 48, x: canvas.width - canvas.width / 4, y: canvas.height - canvas.height / 4)
-//        }
-        
+            
+            
         // Draw a circle where the mouse pointer is
         canvas.drawShapesWithBorders = false
         canvas.drawShapesWithFill = true
         canvas.fillColor = Color(hue: 0, saturation: 0, brightness: 100, alpha: 100)
         canvas.drawEllipse(centreX: Int(canvas.mouseX), centreY: Int(canvas.mouseY), width: 5, height: 5)
         } else {
+            func mouseDown() {
+                if (canvas.mouseX >  ){
             
-        x1 = x1 + 0
-        x2 = x2 + 0
-        x3 = x3 + 0
-        
-        
+            if (awnser ==  false){
+                canvas.drawText(message: "❌", size: 48, x: canvas.width - canvas.width / 4, y: canvas.height - canvas.height / 4)
+            }
+            if (awnser ==  true){
+                canvas.drawText(message: "✅", size: 48, x: canvas.width - canvas.width / 4, y: canvas.height - canvas.height / 4)
+            }
+            
+                }
+            }
         }
             
         
