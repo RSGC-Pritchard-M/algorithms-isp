@@ -23,6 +23,8 @@ class Sketch : NSObject {
     var s2 = -3
     var x3 = 175
     var s3 = 3
+    var stop = false
+    
     
 //    if (canvas.frameCount > 1000){
 //    var s1 = 0
@@ -44,7 +46,8 @@ class Sketch : NSObject {
     
     // Runs repeatedly, equivalent to draw() in Processing
     func draw() {
-        
+        if(stop == false){
+            
         
         //if less than 120 frames dont move
         if (canvas.frameCount > 120 ){
@@ -67,9 +70,9 @@ class Sketch : NSObject {
         }
         
         if (canvas.frameCount > 1000){
-            x1 = x1 + 0
-            x2 = x2 + 0
-            x3 = x3 + 0
+            
+            stop = true
+            
         }
         // "Clear" the background
         canvas.drawShapesWithBorders = false
@@ -88,10 +91,16 @@ class Sketch : NSObject {
         canvas.fillColor = Color(hue: 240, saturation: 80, brightness: 90, alpha: 100)
         canvas.drawEllipse(centreX: x1, centreY: canvas.height / 2, width: 25, height: 25)
         
+        if (canvas.frameCount < 120){
         canvas.drawShapesWithBorders = false
-        canvas.fillColor = Color(hue: Float(canvas.frameCount), saturation: 80, brightness: 90, alpha: 100)
+        canvas.fillColor = Color(hue:0, saturation: 80, brightness: 90, alpha: 100)
         canvas.drawEllipse(centreX: x2, centreY: canvas.height / 2, width: 25, height: 25)
-        
+        }
+        if (canvas.frameCount > 120){
+            canvas.drawShapesWithBorders = false
+            canvas.fillColor = Color(hue:240, saturation: 80, brightness: 90, alpha: 100)
+            canvas.drawEllipse(centreX: x2, centreY: canvas.height / 2, width: 25, height: 25)
+        }
         canvas.drawShapesWithBorders = false
         canvas.fillColor = Color(hue: 240, saturation: 80, brightness: 90, alpha: 100)
         canvas.drawEllipse(centreX: x3, centreY: canvas.height / 2, width: 25, height: 25)
@@ -103,17 +112,29 @@ class Sketch : NSObject {
         // Draw some more text on the screen
         canvas.textColor = Color(hue: 60, saturation: 80, brightness: 90, alpha: 100) // yellow
         canvas.drawText(message: "Current frame: \(canvas.frameCount)", size: 12, x: canvas.width / 16, y: canvas.height - canvas.height / 8)
-//        canvas.awnser = false
-//        // Text with emoji works too
-//        if (awnser == true){
-        canvas.drawText(message: "😜", size: 48, x: canvas.width - canvas.width / 4, y: canvas.height - canvas.height / 4)
-        }
+                // Text with emoji works too
+//        if (Awnser ==  false){
+//        canvas.drawText(message: "Wrong", size: 48, x: canvas.width - canvas.width / 4, y: canvas.height - canvas.height / 4)
+//        }
+//        if (Awnser ==  true){
+//            canvas.drawText(message: "Correct", size: 48, x: canvas.width - canvas.width / 4, y: canvas.height - canvas.height / 4)
+//        }
         
         // Draw a circle where the mouse pointer is
         canvas.drawShapesWithBorders = false
         canvas.drawShapesWithFill = true
         canvas.fillColor = Color(hue: 0, saturation: 0, brightness: 100, alpha: 100)
         canvas.drawEllipse(centreX: Int(canvas.mouseX), centreY: Int(canvas.mouseY), width: 5, height: 5)
+        } else {
+            
+        x1 = x1 + 0
+        x2 = x2 + 0
+        x3 = x3 + 0 
+        
+        
+        }
+            
+        
         
     }
     
