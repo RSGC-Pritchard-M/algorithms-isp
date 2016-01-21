@@ -17,11 +17,11 @@ class Sketch : NSObject {
     // Declare any properties you need for your sketch below this comment, but before init()
     
     
-    var x1 = 25
+    var x1 = Int (arc4random_uniform(60)) + 20
     var s1 = 3
-    var x2 = 110
+    var x2 = Int (arc4random_uniform(60)) + 85
     var s2 = -3
-    var x3 = 175
+    var x3 = Int (arc4random_uniform(60)) + 140
     var s3 = 3
     var stop = false
     
@@ -129,7 +129,7 @@ class Sketch : NSObject {
             
         x1 = x1 + 0
         x2 = x2 + 0
-        x3 = x3 + 0 
+        x3 = x3 + 0
         
         
         }
