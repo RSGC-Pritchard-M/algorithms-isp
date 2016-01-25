@@ -16,11 +16,11 @@ class Sketch : NSObject {
     
     
     var x1 = Int (arc4random_uniform(60)) + 20
-    var s1 = 3
+    var s1 = 10
     var x2 = Int (arc4random_uniform(60)) + 85
-    var s2 = -3
+    var s2 = -10
     var x3 = Int (arc4random_uniform(60)) + 140
-    var s3 = 3
+    var s3 = 10
     var stop = false
     var awnser = false
     var pressed = false
@@ -149,7 +149,7 @@ class Sketch : NSObject {
     // Respond to the mouseDown event
     func mouseDown() {
         
-        if (canvas.frameCount > 1000 && x2+15 > Int(canvas.mouseX) && Int(canvas.mouseX) > x2-15 && 0 < Int(canvas.mouseY) && Int(canvas.mouseY) < 300) {
+        if (canvas.frameCount > 1000 && x2+15 > Int(canvas.mouseX) && Int(canvas.mouseX) > x2-15 && canvas.height/2 - 12 < Int(canvas.mouseY) && Int(canvas.mouseY) < canvas.height/2 + 12) {
             
             pressed = true
             
@@ -162,12 +162,7 @@ class Sketch : NSObject {
        
         
         
-        // When the mouse is pressed, change the background color that will be used.
-        /*if backgroundRed == true {
-            backgroundRed = false
-        } else {
-            backgroundRed = true
-        }*/
+               
     }
     
 }
