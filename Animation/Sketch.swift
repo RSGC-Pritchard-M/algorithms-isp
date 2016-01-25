@@ -23,7 +23,7 @@ class Sketch : NSObject {
     var s3 = 3
     var stop = false
     var awnser = false
-    
+    var pressed = false
     var backgroundRed : Bool = false // Boolean to toggle whether background is red
     
     // This runs once, equivalent to setup() in Processing
@@ -59,11 +59,11 @@ class Sketch : NSObject {
             
         } else { // 1000 or greater (frameCount)
             
-            if mouseDown(x2-12 > canvas.mouseX > x2+12 && 88 < canvas.mouseY < 112 {
             
-            awnser = true
-           
-            }
+         
+            
+            
+            
         }
         
                 if (x2 > canvas.width || x2 < 0) {
@@ -85,6 +85,17 @@ class Sketch : NSObject {
                     canvas.fillColor = Color(hue: 0, saturation: 0, brightness: 0, alpha: 10)
                 }
                 canvas.drawRectangle(bottomRightX: 0, bottomRightY: 0, width: canvas.width, height: canvas.height)
+        
+        if(pressed == true) {
+        if (awnser == false) {
+            canvas.drawText(message: "❌", size: 48, x: canvas.width - canvas.width / 4, y: canvas.height - canvas.height / 4)
+        }
+        
+        if (awnser ==  true){
+            canvas.drawText(message: "✅", size: 48, x: canvas.width - canvas.width / 4, y: canvas.height - canvas.height / 4)
+        }
+        }
+        
         
         
                 // Draw a circle that moves across the screen
@@ -120,7 +131,7 @@ class Sketch : NSObject {
                 canvas.drawShapesWithFill = true
                 canvas.fillColor = Color(hue: 0, saturation: 0, brightness: 100, alpha: 100)
                 canvas.drawEllipse(centreX: Int(canvas.mouseX), centreY: Int(canvas.mouseY), width: 5, height: 5)
-        
+        /*
                 if (awnser == false) {
                     canvas.drawText(message: "❌", size: 48, x: canvas.width - canvas.width / 4, y: canvas.height - canvas.height / 4)
                 }
@@ -128,6 +139,7 @@ class Sketch : NSObject {
                 if (awnser ==  true){
                     canvas.drawText(message: "✅", size: 48, x: canvas.width - canvas.width / 4, y: canvas.height - canvas.height / 4)
                 }
+*/
         
         
     } // END of draw() func
@@ -137,13 +149,25 @@ class Sketch : NSObject {
     // Respond to the mouseDown event
     func mouseDown() {
         
+        if (canvas.frameCount > 1000 && x2+15 > Int(canvas.mouseX) && Int(canvas.mouseX) > x2-15 && 0 < Int(canvas.mouseY) && Int(canvas.mouseY) < 300) {
+            
+            pressed = true
+            
+            awnser = true
+            
+        } else {
+            awnser = false
+            pressed = true
+        }
+       
+        
         
         // When the mouse is pressed, change the background color that will be used.
-        if backgroundRed == true {
+        /*if backgroundRed == true {
             backgroundRed = false
         } else {
             backgroundRed = true
-        }
+        }*/
     }
     
 }
