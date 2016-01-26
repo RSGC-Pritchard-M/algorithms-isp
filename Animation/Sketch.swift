@@ -16,16 +16,16 @@ class Sketch : NSObject {
     
     
     var x1 = Int (arc4random_uniform(60)) + 20
-    var s1 = 10
-    var x2 = Int (arc4random_uniform(60)) + 85
-    var s2 = -10
+    var s1 = 5
+    var x2 = Int (arc4random_uniform(60)) + 80
+    var s2 = -5
     var x3 = Int (arc4random_uniform(60)) + 140
-    var s3 = 10
+    var s3 = 5
     var stop = false
     var awnser = false
     var pressed = false
     var backgroundRed : Bool = false // Boolean to toggle whether background is red
-    
+   
     // This runs once, equivalent to setup() in Processing
     override init() {
         
@@ -39,9 +39,6 @@ class Sketch : NSObject {
     
     // Runs repeatedly, equivalent to draw() in Processing
     func draw() {
-        
-        
-        
         //if less than 120 frames dont move
         if (canvas.frameCount < 120){
             
@@ -58,11 +55,6 @@ class Sketch : NSObject {
             }
             
         } else { // 1000 or greater (frameCount)
-            
-            
-         
-            
-            
             
         }
         
@@ -86,17 +78,27 @@ class Sketch : NSObject {
                 }
                 canvas.drawRectangle(bottomRightX: 0, bottomRightY: 0, width: canvas.width, height: canvas.height)
         
-        if(pressed == true) {
+        
+        if (pressed == true) {
         if (awnser == false) {
             canvas.drawText(message: "❌", size: 48, x: canvas.width - canvas.width / 4, y: canvas.height - canvas.height / 4)
-        }
+            }
         
         if (awnser ==  true){
             canvas.drawText(message: "✅", size: 48, x: canvas.width - canvas.width / 4, y: canvas.height - canvas.height / 4)
+            }
         }
+        if (canvas.frameCount > 1500 && awnser == false){
+            canvas.frameCount = 0
+        }
+        
+        if (canvas.frameCount > 1500 && awnser == true){
+            canvas.frameCount = 0
         }
         
         
+        
+      
         
                 // Draw a circle that moves across the screen
                 canvas.drawShapesWithBorders = false
@@ -125,21 +127,14 @@ class Sketch : NSObject {
                 canvas.textColor = Color(hue: 60, saturation: 80, brightness: 90, alpha: 100) // yellow
                 canvas.drawText(message: "Current frame: \(canvas.frameCount)", size: 12, x: canvas.width / 16, y: canvas.height - canvas.height / 8)
         
+               
+        
         
                 // Draw a circle where the mouse pointer is
                 canvas.drawShapesWithBorders = false
                 canvas.drawShapesWithFill = true
                 canvas.fillColor = Color(hue: 0, saturation: 0, brightness: 100, alpha: 100)
                 canvas.drawEllipse(centreX: Int(canvas.mouseX), centreY: Int(canvas.mouseY), width: 5, height: 5)
-        /*
-                if (awnser == false) {
-                    canvas.drawText(message: "❌", size: 48, x: canvas.width - canvas.width / 4, y: canvas.height - canvas.height / 4)
-                }
-        
-                if (awnser ==  true){
-                    canvas.drawText(message: "✅", size: 48, x: canvas.width - canvas.width / 4, y: canvas.height - canvas.height / 4)
-                }
-*/
         
         
     } // END of draw() func
@@ -162,7 +157,7 @@ class Sketch : NSObject {
        
         
         
-               
+        
     }
     
 }
